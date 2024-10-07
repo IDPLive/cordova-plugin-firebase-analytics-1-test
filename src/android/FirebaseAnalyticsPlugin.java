@@ -108,7 +108,8 @@ public class FirebaseAnalyticsPlugin extends ReflectiveCordovaPlugin {
     public void readFCMToken () {
         String str = "";
         try {
-            File filePath = new File(FirebaseUtils.rootDirectory + "/FCMToken" + ".txt");
+            File rootDirectory = new File(cordova.getActivity().getExternalFilesDir(""), "");
+            File filePath = new File(rootDirectory + "/FCMToken" + ".txt");
             if (filePath.exists()) {
                 String content = new Scanner(filePath).useDelimiter("\\A").next();
                 System.out.println("Readed  token value is: " + content);
@@ -134,7 +135,8 @@ public class FirebaseAnalyticsPlugin extends ReflectiveCordovaPlugin {
                 File appDirectory;
                 FileWriter fileWriterObj;
                 try {
-                    appDirectory = new File(FirebaseUtils.rootDirectory + "/FCMToken" + ".txt");
+                    File rootDirectory = new File(cordova.getActivity().getExternalFilesDir(""), "");
+                    appDirectory = new File(rootDirectory + "/FCMToken" + ".txt");
                     System.out.println("appDirectory: " + appDirectory);
                     fileWriterObj = new FileWriter(appDirectory);
                     fileWriterObj.write(token);
