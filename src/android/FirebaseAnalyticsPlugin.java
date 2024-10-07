@@ -88,14 +88,12 @@ public class FirebaseAnalyticsPlugin extends ReflectiveCordovaPlugin {
     protected void writeFCMToken(CordovaArgs args, CallbackContext callbackContext) throws JSONException {
         callback = callbackContext;
         getToken();
-        return true;
     }
 
     @CordovaMethod
     protected void getFCMToken(CordovaArgs args, CallbackContext callbackContext) throws JSONException {
         callback = callbackContext;
         readFCMToken();
-        return true;
     }
 
     @CordovaMethod
